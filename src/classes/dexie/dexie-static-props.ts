@@ -207,8 +207,8 @@ props(Dexie, {
         indexedDB: (_global.indexedDB || _global.mozIndexedDB || _global.webkitIndexedDB || _global.msIndexedDB) as IDBFactory,
         IDBKeyRange: (_global.IDBKeyRange || _global.webkitIDBKeyRange) as IDBKeyRange
       }
-    } catch {
-      return { indexedDB: null, IDBKeyRange: null }
+    } catch (err) {
+      return { indexedDB: null, IDBKeyRange: null, iDBError: err }
     }
   })()),
 
